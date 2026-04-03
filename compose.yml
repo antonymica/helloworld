@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: helloworld
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    networks:
+      - hello-net
+
+networks:
+  hello-net:
+    driver: bridge
