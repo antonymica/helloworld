@@ -6,6 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    allowedHosts: ['helloworld.antonymica.site'],
+    allowedHosts: ['helloworld.antonymica.site', 'very-simple.duckdns.org'],
   },
 });
