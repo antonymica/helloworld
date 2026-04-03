@@ -48,7 +48,6 @@ jobs:
       - name: Run tests
         run: |
           docker run -d --name test-container -p 3000:3000 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          sudo apt-get update && sudo apt-get install -y curl
           sleep 10 # Attendre que le conteneur soit prêt
           curl -f http://localhost:3000/ | grep "hello, world!" || exit 1
           docker stop test-container
