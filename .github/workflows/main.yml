@@ -47,11 +47,10 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run -d --rm ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          sudo apt-get update && sudo apt-get install -y curl
+          docker run -d --rm -p 3000:3000 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           sleep 5
           curl -f http://localhost:3000/ | grep "hello, world!" || exit 1
-          echo "Tests passed!"
+          echo "Tests passed successfully!"
 
   deploy:
     needs: test
